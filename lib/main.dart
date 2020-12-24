@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
             ),
             _cardTipo2(),
             _cardTipo3(),
+            _swiperTarjetas()
           ],
         ),
       ),
@@ -70,5 +72,22 @@ class MyApp extends StatelessWidget {
         ),
       ],
     ));
+  }
+
+  Widget _swiperTarjetas() {
+    return Container(
+      width: double.infinity,
+      height: 300.0,
+      child: Swiper(
+        itemBuilder: (BuildContext context, int index) {
+          return Image.network(
+              'https://i.pinimg.com/originals/12/94/b0/1294b0bd87d92def547494558b65b130.jpg/350x15',
+              fit: BoxFit.fill);
+        },
+        itemCount: 3,
+        pagination: new SwiperPagination(),
+        control: new SwiperControl(),
+      ),
+    );
   }
 }
